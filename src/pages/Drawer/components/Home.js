@@ -1,7 +1,7 @@
 import React, {useRef } from 'react'
-import { View, Dimensions, StyleSheet, ScrollView, Animated, Text} from 'react-native'
-import {HeaderHome, JadwalLelang, FiturLelang, UnitRekomondasi, Carousel, NavBar, FiturTerlengkap, About} from '../../components'
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen'
+import { View, Dimensions, StyleSheet, ScrollView, Animated} from 'react-native'
+import * as components from '../../../components'
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen'
 const window = Dimensions.get("window")
 const Home = ({navigation}) => {
     const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -31,19 +31,19 @@ const Home = ({navigation}) => {
             }
             >
                 <View style={{height: hp('45%')}}>
-                    <HeaderHome/>
-                    <Carousel/>
+                    <components.HeaderHome navigation={navigation}/>
+                    <components.Carousel/>
                 </View>
                 <View style={{height: hp('23.5%'), alignItems: 'center'}}>
-                    <JadwalLelang/>
+                    <components.JadwalLelang/>
                     <View style={styles.line}/>
                 </View>
-                <FiturLelang/>
-                <FiturTerlengkap/>
-                <UnitRekomondasi/>
-                <About/>
+                <components.FiturLelang/>
+                <components.FiturTerlengkap/>
+                <components.UnitRekomondasi/>
+                <components.About/>
             </ScrollView>
-            <NavBar 
+            <components.NavBar 
                 fadeAnim={fadeAnim} 
                 navigation={navigation}/>
         </View>

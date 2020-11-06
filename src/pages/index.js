@@ -1,4 +1,6 @@
-import Home from './Home'
+import Auth from './Auth'
+import MyDrawer from './Drawer'
 export {
-    Home
+    Auth,
+    MyDrawer
 }
