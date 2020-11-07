@@ -1,11 +1,13 @@
 import React from 'react'
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
-import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen'
+import { Text, View, StyleSheet, TouchableOpacity, Dimensions } from 'react-native'
 import {data_name} from './utils'
+import {normalize} from '../../atoms'
+const window = Dimensions.get("window")
+
 const HeaderHome = ({navigation}) => {
     return (
         <View style={styles.header}>
-            <View style={{marginTop: '8%', width: '100%'}}>
+            <View style={{marginTop: window.height / 24, width: '100%', height: '60%',}}>
                 <Text style={styles.fontSize}>Selamat Datang,</Text>
                 <Text style={styles.fontSize1}>Silakan daftar untuk mendaftarkan fitur lelang</Text>
                 <View 
@@ -22,7 +24,7 @@ const HeaderHome = ({navigation}) => {
                                     <TouchableOpacity 
                                         key={i} 
                                         onPress={() => navigation.navigate('Auth', x.value)}>
-                                        <Text style={{color: 'white', fontSize: hp('2%')}}>{x.name}</Text>
+                                        <Text style={{color: 'white', fontSize: normalize(15)}}>{x.name}</Text>
                                     </TouchableOpacity>
                                 )
                             } else {
@@ -42,25 +44,24 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 90,
         borderBottomRightRadius: 90,
         backgroundColor: '#689df2', 
-        height: hp('30%'), 
+        height: '70%', 
         width: '100%',
         flexDirection: 'row',
         
     },
     fontSize:{
-        fontSize: hp('2.5%'),
+        fontSize: normalize(19),
         color: 'white',
-        marginHorizontal: wp('5%')
+        marginHorizontal: '5%'
     },
     fontSize1:{
-        fontSize: hp('1.7%'),
+        fontSize: normalize(13),
         color: 'white',
-        marginTop: hp('1%'),
-        marginHorizontal: wp('5%')
+        marginHorizontal: '5%'
     },
     garis: {
-        marginTop: hp('1%'),
-        height: hp('2.5%'),
+        marginTop: window.height / 70,
+        height: '90%',
         borderLeftWidth: 1,
         borderColor: 'white',
     },

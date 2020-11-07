@@ -1,6 +1,6 @@
 import React from 'react'
 import {TouchableOpacity, Text, StyleSheet} from 'react-native'
-import {heightPercentageToDP as hp} from 'react-native-responsive-screen'
+import normalize from '../FontSize'
 const Button = ({color, width, label}) => {
     return (
         <TouchableOpacity style={styles.container(color, width)}>
@@ -12,9 +12,9 @@ const Button = ({color, width, label}) => {
 const styles = StyleSheet.create({
     container: (color, width) => ({
         backgroundColor: color,
-        paddingVertical: hp('1%'),
+        paddingVertical: normalize(8),
         alignItems: 'center',
-        width: hp(width)
+        width: normalize(width)
     }),
     text: {
         color: 'white'

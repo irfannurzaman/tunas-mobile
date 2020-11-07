@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen'
+import {normalize} from '../../atoms'
 
 const About = () => {
     return (
@@ -15,17 +15,16 @@ const styless = StyleSheet.create({
             borderTopLeftRadius: 90,
             borderTopRightRadius: 90,
             backgroundColor: '#689df2', 
-            height: hp('25%'), 
+            height: normalize(320), 
             width: '100%',
             flexDirection: 'row',
-            marginTop: hp('5%'),
             justifyContent: 'center'
         },
         header: {
-            width: wp('90%'),
-            height: hp('25%'),
+            width: '90%',
+            height: '45%',
             backgroundColor: 'white',
-            marginTop: hp('-5%'),
+            marginTop: normalize(-20),
             borderRadius: 10
     }
 })

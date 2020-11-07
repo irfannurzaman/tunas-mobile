@@ -1,21 +1,21 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen'
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Dimensions } from 'react-native'
 import {data_rekomondasi} from '../../../utils'
-import {Button} from '../../atoms'
+import {Button, normalize} from '../../atoms'
+const windows = Dimensions.get('window')
 
 const UnitRekomondasi = () => {
     return (
         <View  style={{
             width: 'auto', 
-            height: hp('40%'), 
-            margin: hp('1.5%')
+            height: '23%', 
+            margin: '2%'
             }}>
             <View 
               style={{
                   justifyContent: 'space-between',
                   flexDirection: 'row',
-                  marginBottom: hp('2%')
+                  marginBottom: '4%'
                 }}>
                     <Text style={styless.text}>Unit Rekomondasi</Text>
                     <TouchableOpacity>
@@ -29,14 +29,14 @@ const UnitRekomondasi = () => {
                             <View key={i} style={styless.daftar}>
                                 <View style={{
                                     backgroundColor: 'red', 
-                                    height: hp('20%'), 
+                                    height: '60%', 
                                     width: '100%', 
                                     borderTopLeftRadius: 10, 
                                     borderTopRightRadius: 10}}></View>
                                 <Text style={styless.text}>{x.mobil}</Text>
                                 <Text style={styless.text}>Rp{x.price}</Text>
-                                <View style={{marginTop: hp('1%')}}>
-                                    <Button color={'#689df2'} width={'17%'} label={'view'}/>
+                                <View style={{marginTop: normalize(6)}}>
+                                    <Button color={'#689df2'} width={90} label={'view'}/>
                                 </View>
                             </View>
                         )
@@ -50,15 +50,15 @@ export default UnitRekomondasi
 
 const styless = StyleSheet.create({
     text: {
-        fontSize: hp('2%')
+        fontSize: normalize(15)
     },
     daftar: {
-        height: hp('33%'),
-        width: wp('43%'),
+        height: windows.height / 3,
+        width: '25%',
         borderRadius: 10,
         borderWidth: 0.6,
         elevation: 1.5,
-        marginRight: wp('5%'),
+        marginRight: 15,
         alignItems: 'center'
     }
 })

@@ -1,7 +1,6 @@
 import React, {useRef } from 'react'
 import { View, Dimensions, StyleSheet, ScrollView, Animated} from 'react-native'
 import * as components from '../../../components'
-import {heightPercentageToDP as hp} from 'react-native-responsive-screen'
 const window = Dimensions.get("window")
 const Home = ({navigation}) => {
     const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -30,11 +29,11 @@ const Home = ({navigation}) => {
                 event => _handleHeaderColor(event)
             }
             >
-                <View style={{height: hp('45%')}}>
+                <View style={{flex: 1, width: '100%', height: window.height / 2.3}}>
                     <components.HeaderHome navigation={navigation}/>
                     <components.Carousel/>
                 </View>
-                <View style={{height: hp('23.5%'), alignItems: 'center'}}>
+                <View style={{height: '12%', alignItems: 'center'}}>
                     <components.JadwalLelang/>
                     <View style={styles.line}/>
                 </View>
